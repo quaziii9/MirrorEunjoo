@@ -10,10 +10,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{151C2ED5-AE2F-9FC7-DCA1-FA498205756E}</ProjectGuid>
+    <ProjectGuid>{2EECDACF-D769-427E-BE96-2ABEAD51350C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Mirror.Examples</AssemblyName>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -60,125 +60,27 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Mirror\Examples\LagCompensation\ServerCube.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\PlayerCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\CouchCoop\Scripts\CouchPlayerManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\BenchmarkNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\RigidbodyBenchmark\Scripts\RigidbodyBenchmarkNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\BehaviourWrapper\SinMoveYWrapper.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\BehaviourConfig.cs" />
-    <Compile Include="Assets\Mirror\Examples\CCU\Player.cs" />
-    <Compile Include="Assets\Mirror\Examples\TankTheftAuto\Scripts\TankController.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\BehaviourWrapper\IMoveWrapper.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\ZoneHandler.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\MatchController.cs" />
-    <Compile Include="Assets\Mirror\Examples\RigidbodyBenchmark\Scripts\AutoForce.cs" />
-    <Compile Include="Assets\Mirror\Examples\Basic\Scripts\CanvasUI.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\StaticVariables.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\CanvasReferencer.cs" />
-    <Compile Include="Assets\Mirror\Examples\Billiards\Ball\WhiteBall.cs" />
-    <Compile Include="Assets\Mirror\Examples\Basic\Scripts\PlayerUI.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkIdle\BenchmarkIdleNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\Reward.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Scripts\SineMoveRandomBehaviour.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\AdditiveLevelsNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\BilliardsPredicted\Player\PlayerPredicted.cs" />
-    <Compile Include="Assets\Mirror\Examples\CouchCoop\Scripts\CouchPlayer.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\NetworkRoomPlayerExt.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\PlayerCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Scripts\WanderMoveBehaviour.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\ScriptAnimations.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\Portal.cs" />
-    <Compile Include="Assets\Mirror\Examples\BilliardsPredicted\Ball\RedBallPredicted.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkIdle\Player.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\LookAtMainCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\RigidbodyBenchmark\Scripts\AddForce.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\PlayerCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\CCU\Monster.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\FadeInOut.cs" />
-    <Compile Include="Assets\Mirror\Examples\Billiards\Ball\RedBall.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\MultiSceneNetManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\Reward.cs" />
-    <Compile Include="Assets\Mirror\Examples\Basic\Scripts\Player.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Mirror\Examples\TankTheftAuto\Scripts\PlayerCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\CellGUI.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkIdle\Npc.cs" />
-    <Compile Include="Assets\Mirror\Examples\Snapshot Interpolation\ClientCube.cs" />
-    <Compile Include="Assets\Mirror\Examples\_Common\Scripts\FPS.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\BehaviourWrapper\WanderMoveWrapper.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\PlayerScore.cs" />
-    <Compile Include="Assets\Mirror\Examples\LagCompensation\ClientCube.cs" />
-    <Compile Include="Assets\Mirror\Examples\TankTheftAuto\Scripts\AuthorityNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\PlayerGUI.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\PlayerControllerScript.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\MatchMessages.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Scripts\GUIGame.cs" />
-    <Compile Include="Assets\Mirror\Examples\LagCompensation\Capture2D.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\RandomVector3.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveLevels\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Mirror\Examples\Pong\Scripts\NetworkManagerPong.cs" />
-    <Compile Include="Assets\Mirror\Examples\Snapshot Interpolation\Snapshot3D.cs" />
-    <Compile Include="Assets\Mirror\Examples\_Common\Scripts\FaceCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\PlayerEmpty.cs" />
-    <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\MonsterMovement.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\CharacterSelection.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\PlayerCamera.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\MatchNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\_Common\Scripts\CanvasNetworkManagerHUD\CanvasNetworkManagerHUD.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Scripts\SineMoveYBehaviour.cs" />
-    <Compile Include="Assets\Mirror\Examples\Basic\Scripts\BasicNetManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\AdditiveNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\NetworkRoomManagerExt.cs" />
-    <Compile Include="Assets\Mirror\Examples\SyncDirection\Player.cs" />
-    <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\ShootingTankBehaviour.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\BehaviourWrapper\SinRandomMoveWrapper.cs" />
-    <Compile Include="Assets\Mirror\Examples\Pong\Scripts\Player.cs" />
-    <Compile Include="Assets\Mirror\Examples\LagCompensation\Snapshot3D.cs" />
-    <Compile Include="Assets\Mirror\Examples\BilliardsPredicted\Ball\WhiteBallPredicted.cs" />
-    <Compile Include="Assets\Mirror\Examples\TankTheftAuto\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\CharacterData.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\Unity-Simulation-Timer\Runtime\SimulationTimer.cs" />
-    <Compile Include="Assets\Mirror\Examples\_Common\Scripts\RandomColor.cs" />
-    <Compile Include="Assets\Mirror\Examples\_Common\Scripts\PhysicsSimulator\PhysicsSimulator.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\PhysicsCollision.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\MatchGUI.cs" />
-    <Compile Include="Assets\Mirror\Examples\RigidbodyPhysics\Scripts\AddForce.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\RoomGUI.cs" />
-    <Compile Include="Assets\Mirror\Examples\Room\Scripts\PlayerScore.cs" />
-    <Compile Include="Assets\Mirror\Examples\Snapshot Interpolation\ServerCube.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\NetworkManagerCharacterSelection.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Scripts\UI\BaseGUIGame.cs" />
-    <Compile Include="Assets\Mirror\Examples\Pong\Scripts\Ball.cs" />
-    <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\CanvasController.cs" />
-    <Compile Include="Assets\Mirror\Examples\CCU\CCUNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Examples\TankTheftAuto\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Mirror\Examples\CharacterSelection\Scripts\SceneReferencer.cs" />
-    <Compile Include="Assets\Mirror\Examples\CouchCoop\Scripts\CanvasScript.cs" />
-    <Compile Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\Unity-Simulation-Timer\Runtime\PauseableSimulationTimer.cs" />
+    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatAuthenticator.cs" />
+    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatUI.cs" />
+    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\LoginUI.cs" />
+    <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Tank.cs" />
+    <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\Player.cs" />
+    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatNetworkManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Mirror\Examples\BenchmarkIdle\_Readme.txt" />
-    <None Include="Assets\Mirror\Examples\AdditiveLevels\ReadMe.txt" />
-    <None Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Dependencies\netcode-benchmarker-util\Runtime\Shaders\Unlit.shader" />
-    <None Include="Assets\Mirror\Examples\Billiards\Table\License.txt" />
-    <None Include="Assets\Mirror\Examples\BenchmarkIdle\Readme.txt" />
-    <None Include="Assets\Mirror\Examples\Billiards\_Readme.txt" />
-    <None Include="Assets\Mirror\Examples\CCU\Readme.txt" />
-    <None Include="Assets\Mirror\Examples\LagCompensation\_README.txt" />
-    <None Include="Assets\Mirror\Examples\CharacterSelection\_ReadMe.txt" />
-    <None Include="Assets\Mirror\Examples\BilliardsPredicted\_Readme.txt" />
-    <None Include="Assets\Mirror\Examples\BenchmarkStinkySteak\Shaders\Unlit.shader" />
-    <None Include="Assets\Mirror\Examples\BenchmarkStinkySteak\_Readme.txt" />
-    <None Include="Assets\Mirror\Examples\Snapshot Interpolation\README.txt" />
-    <None Include="Assets\Mirror\Examples\CouchCoop\_ReadMe.txt" />
-    <None Include="Assets\Mirror\Examples\Mirror.Examples.asmdef" />
-    <None Include="Assets\Mirror\Examples\VR\Readme.txt" />
+    <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
+    <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll" />
+    <None Include="Assets\Mirror\Ref\Tanks\Textures\(Public Domain) Dirt Hand Painted Texture\Dirt Hand Painted Texture - License.txt" />
+    <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll" />
+    <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll" />
+    <None Include="Assets\Mirror\Plugins\BouncyCastle\BouncyCastle.Cryptography.dll" />
+    <None Include="Assets\Mirror\Version.txt" />
+    <None Include="Assets\Mirror\Readme.txt" />
+    <None Include="Assets\Mirror\Notice.txt" />
+    <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
+    <None Include="Assets\Mirror\Ref\Tanks\Models\(Public Domain) Recon_Tank\Recon_Tank - License.txt" />
+    <None Include="Assets\Mirror\Ref\Tanks\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -513,48 +415,12 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.Graphs">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.YamlDotNet">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.5\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="log4netPlastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.IonicZip">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.TextureAssets">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -1069,31 +935,147 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Mirror.Editor.csproj">
+      <Project>{0AC07D4B-D1E9-A7CC-3BD0-904D724223F8}</Project>
+      <Name>Mirror.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="EncryptionTransportEditor.csproj">
+      <Project>{BB62B248-9636-B617-43AA-165E4D77A494}</Project>
+      <Name>EncryptionTransportEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
       <Project>{ECA4094E-C27D-626F-1B51-FA014D81FCFB}</Project>
       <Name>Mirror</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Transports.csproj">
+      <Project>{3B99D510-2BB0-67B6-F11D-EEB436F6D82F}</Project>
+      <Name>Mirror.Transports</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Components.csproj">
       <Project>{23867BF8-9AB3-4639-32C4-00FAD1C4255E}</Project>
       <Name>Mirror.Components</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Transports.csproj">
-      <Project>{3B99D510-2BB0-67B6-F11D-EEB436F6D82F}</Project>
-      <Name>Mirror.Transports</Name>
+    <ProjectReference Include="Telepathy.csproj">
+      <Project>{EB27534E-585E-9563-D249-4908C4DA0A73}</Project>
+      <Name>Telepathy</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleWebTransport.csproj">
+      <Project>{EAF7B984-A0D4-C139-7BDB-1CC7B5BCC434}</Project>
+      <Name>SimpleWebTransport</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.CompilerSymbols.csproj">
+      <Project>{56E31131-E87B-3B64-3171-CBD47140212A}</Project>
+      <Name>Mirror.CompilerSymbols</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Authenticators.csproj">
+      <Project>{645B8C4F-4B19-90EB-3B6A-6C57C6FE909A}</Project>
+      <Name>Mirror.Authenticators</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{151C2ED5-AE2F-9FC7-DCA1-FA498205756E}</Project>
+      <Name>Mirror.Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Hosting.csproj">
+      <Project>{BA7A62D9-98B3-9669-C5B1-BBFFD42EAEC0}</Project>
+      <Name>Mirror.Hosting</Name>
+    </ProjectReference>
+    <ProjectReference Include="kcp2k.csproj">
+      <Project>{994C3B5D-200C-0890-69BB-EE8A4269F82C}</Project>
+      <Name>kcp2k</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

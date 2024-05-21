@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatAuthenticator.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatUI.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scenes\LoginPopup.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\LoginUI.cs" />
     <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Tank.cs" />
     <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Projectile.cs" />

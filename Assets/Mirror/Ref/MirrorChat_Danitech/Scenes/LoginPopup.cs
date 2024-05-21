@@ -27,6 +27,16 @@ public class LoginPopup : MonoBehaviour
         SetDefaultNetworkAddress();
     }
 
+    private void OnEnable()
+    {
+        Input_UserName.onValueChanged.AddListener(OnValueChanged_ToggleButton);
+    }
+
+    private void OnDisable()
+    {
+        Input_UserName.onValueChanged.RemoveListener(OnValueChanged_ToggleButton);
+    }
+
     private void Update()
     {
         CheckNatworkAddressValidOnUpdate();
@@ -57,4 +67,10 @@ public class LoginPopup : MonoBehaviour
         }
     }
 
+    public void OnValueChanged_ToggleButton(string userName)
+    {
+        bool isUserNameValid = !string.IsNullOrWhiteSpace(userName);
+        Btn_StartAsHostServer.interactable = isUserNameValid;
+        Btn_StartAsClient.interactable = isUserNameValid;
+    }
 }

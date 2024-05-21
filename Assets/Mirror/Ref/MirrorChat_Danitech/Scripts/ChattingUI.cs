@@ -22,5 +22,6 @@ public class ChattingUI : NetworkBehaviour
 
     public override void OnStartClient()
     {
+        Text_ChatHistory.text = string.Empty;
     }
 }

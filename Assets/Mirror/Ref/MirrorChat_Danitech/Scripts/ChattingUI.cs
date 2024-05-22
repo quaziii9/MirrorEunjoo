@@ -25,12 +25,19 @@ public class ChattingUI : NetworkBehaviour
         Text_ChatHistory.text = string.Empty;
     }
 
+    [Command(requiresAuthority = false)]
+    void CommandSendMsg(string msg, NetworkConnectionToClient sender = null)
+    {
+
+    }
 
 
     public void OnClick_SendMsg()
     {
-        if (!string.IsNullOrWhiteSpace(Input_ChatMsg.text))
+        var currentChatMsg = Input_ChatMsg.text; 
+        if (!string.IsNullOrWhiteSpace(currentChatMsg))
         {
+            CommandSendMsg(currentChatMsg.Trim());
         }
     }
 }

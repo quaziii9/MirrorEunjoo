@@ -1,7 +1,6 @@
 using UnityEngine;
 using Mirror;
 
-public class NetworkingManager : MonoBehaviour
+public class NetworkingManager : NetworkManager
 {
-    
 }

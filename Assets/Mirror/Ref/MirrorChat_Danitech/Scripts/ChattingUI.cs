@@ -81,4 +81,24 @@ public class ChattingUI : NetworkBehaviour
             CommandSendMsg(currentChatMsg.Trim());
         }
     }
+
+    public void OnClick_Exit()
+    {
+        NetworkManager.singleton.StopHost();
+    }
+
+    public void OnValueChanged_ToggleButton(string input)
+    {
+        Btn_Send.interactable = !string.IsNullOrWhiteSpace(input);
+    }
+
+    public void OnEndEdit_SendMsg(string input)
+    {
+        if (Input.GetKeyDown(KeyCode.Return) 
+            || Input.GetKeyDown(KeyCode.KeypadEnter) 
+            || Input.GetButtonDown("Submit"))
+        {
+            OnClick_SendMsg();
+        }
+    }
 }

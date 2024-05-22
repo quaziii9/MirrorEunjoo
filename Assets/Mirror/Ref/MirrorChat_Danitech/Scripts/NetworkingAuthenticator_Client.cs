@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class NetworkingAuthenticator_Client : MonoBehaviour
+public partial class NetworkingAuthenticator
 {
+    
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class NetworkingAuthenticator : NetworkAuthenticator
+public partial class NetworkingAuthenticator : NetworkAuthenticator
 {
     readonly HashSet<NetworkConnection> _connectionsPendingDisconnect = new HashSet<NetworkConnection>();
     internal static readonly HashSet<string> _playerNames = new HashSet<string>();

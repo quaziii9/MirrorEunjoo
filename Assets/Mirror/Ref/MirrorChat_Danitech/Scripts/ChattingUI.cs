@@ -12,6 +12,7 @@ public class ChattingUI : NetworkBehaviour
     [SerializeField] InputField Input_ChatMsg;
     [SerializeField] Button Btn_Send;
 
+    internal static string _localPlayerName;
 
     // 서버온리 - 연결된 플레이어들 이름
     internal static readonly Dictionary<NetworkConnectionToClient, string> _connectedNameDic = new Dictionary<NetworkConnectionToClient, string>();
@@ -45,6 +46,15 @@ public class ChattingUI : NetworkBehaviour
 
     [ClientRpc]
     void OnRecvMessage(string senderName, string msg)
+    {
+        string formatedMsg = (senderName == _localPlayerName) ?
+            $"<color=red>{senderName}:</color> {msg}" :
+            $"<color=blue>{senderName}:</color> {msg}";
+
+        AppendMessage(formatedMsg);
+    }
+
+    void AppendMessage(string msg)
     {
 
     }

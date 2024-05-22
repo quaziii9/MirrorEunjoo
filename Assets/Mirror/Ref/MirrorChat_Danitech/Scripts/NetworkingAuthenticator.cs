@@ -64,6 +64,9 @@ public class NetworkingAuthenticator : NetworkAuthenticator
                 code = 100,
                 message = "Auth Success"
             };
+
+            conn.Send(authResMsg);
+            ServerAccept(conn);
         }
         else
         {

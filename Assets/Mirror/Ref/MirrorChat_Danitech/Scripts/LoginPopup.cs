@@ -22,6 +22,7 @@ public class LoginPopup : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Text_Error.gameObject.SetActive(false);
     }
 
     private void Start()

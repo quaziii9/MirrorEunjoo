@@ -724,6 +724,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8176348779575266784, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: _netManager
+      value: 
+      objectReference: {fileID: 8743271644847083760}
     - target: {fileID: 8819475229100118555, guid: a0dc40807e776f448a4b91618150b242, type: 3}
       propertyPath: m_Name
       value: LoginPopup
@@ -830,6 +834,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b9e2d39c3858074a828780c8d2bd6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8743271644847083760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6055668625242371878, guid: 7d9676d6569c4714ab422113a9028f39, type: 3}
+  m_PrefabInstance: {fileID: 8743271644847083757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783bc78ae8aa74f4caa1faafe811858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

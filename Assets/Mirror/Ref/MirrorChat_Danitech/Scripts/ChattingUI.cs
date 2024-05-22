@@ -18,6 +18,11 @@ public class ChattingUI : NetworkBehaviour
     // 서버온리 - 연결된 플레이어들 이름
     internal static readonly Dictionary<NetworkConnectionToClient, string> _connectedNameDic = new Dictionary<NetworkConnectionToClient, string>();
 
+    public void SetLocalPlayerName(string userName)
+    {
+        _localPlayerName = userName;
+    }
+
     public override void OnStartServer()
     {
         _connectedNameDic.Clear();

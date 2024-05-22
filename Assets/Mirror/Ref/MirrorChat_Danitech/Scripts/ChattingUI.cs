@@ -25,11 +25,13 @@ public class ChattingUI : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        this.gameObject.SetActive(true);
         _connectedNameDic.Clear();
     }
 
     public override void OnStartClient()
     {
+        this.gameObject.SetActive(true);
         Text_ChatHistory.text = string.Empty;
     }
 

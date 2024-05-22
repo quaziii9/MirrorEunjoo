@@ -18,10 +18,12 @@ public partial class NetworkingAuthenticator
 
     public override void OnStartClient()
     {
+        NetworkClient.RegisterHandler<AuthResMsg>(OnAuthResponseMessage, false);
     }
 
     public override void OnStopClient()
     {
+        NetworkClient.UnregisterHandler<AuthResMsg>();
     }
 
     // 클라에서 인증 요청 시 불려짐

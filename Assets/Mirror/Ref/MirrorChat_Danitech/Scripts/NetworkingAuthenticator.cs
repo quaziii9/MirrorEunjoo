@@ -26,17 +26,20 @@ public class NetworkingAuthenticator : NetworkAuthenticator
 
     public override void OnStartServer()
     {
+        // 클라로부터 인증 요청 처리를 위한 핸들러 연결
+        NetworkServer.RegisterHandler<AuthReqMsg>(OnAuthRequestMessage, false);
     }
 
     public override void OnStopServer()
     {
+        NetworkServer.UnregisterHandler<AuthResMsg>();
     }
 
     public override void OnServerAuthenticate(NetworkConnectionToClient conn)
     {
     }
 
-    public void OnAuthRequestMessage(NetworkConnectionToClient conn)
+    public void OnAuthRequestMessage(NetworkConnectionToClient conn, AuthReqMsg msg)
     {
     }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
 
-public class ChatUser : MonoBehaviour
+public class ChatUser : NetworkBehaviour
 {
 }

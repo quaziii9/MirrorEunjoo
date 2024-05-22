@@ -80,17 +80,18 @@ public class NetworkingAuthenticator : NetworkAuthenticator
 
             conn.Send(authResMsg);
             conn.isAuthenticated = false;
+
+            StartCoroutine(DelayedDisconnect(conn, 1.0f));
         }
-
-
-
     }
 
     IEnumerator DelayedDisconnect(NetworkConnectionToClient conn, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        ServerReject(conn);
 
         yield return null;
+        _connectionsPendingDisconnect.Remove(conn);
     }
 #endregion
 

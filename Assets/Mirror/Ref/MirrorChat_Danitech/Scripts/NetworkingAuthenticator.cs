@@ -5,7 +5,18 @@ using Mirror;
 
 public class NetworkingAuthenticator : NetworkAuthenticator
 {
+    public struct AuthReqMsg : NetworkMessage
+    {
+        // 인증을 위해 사용
+        // OAuth 같은 걸 사용 시 이 부분에 엑세스 토큰 같은 변수를 추가하면 됨
+        public string authUserName;
+    }
 
+    public struct AuthResMsg : NetworkMessage
+    {
+        public byte code;
+        public string message;
+    }
 
 #region ServerSide
     [UnityEngine.RuntimeInitializeOnLoadMethod]
@@ -35,6 +46,6 @@ public class NetworkingAuthenticator : NetworkAuthenticator
 
         yield return null;
     }
-#endif
+#endregion
 
 }

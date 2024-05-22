@@ -5,8 +5,15 @@ using Mirror;
 
 public partial class NetworkingAuthenticator
 {
-    public void SetPlayerName(string username)
+    [SerializeField] LoginPopup _loginPopup;
+
+    [Header("Client Username")]
+    public string _playerName;
+
+    public void OnInputValueChanged_SetPlayerName(string username)
     {
+        _playerName = username;
+        _loginPopup.SetUIOnAuthValueChanged();
     }
 
     public override void OnStartClient()

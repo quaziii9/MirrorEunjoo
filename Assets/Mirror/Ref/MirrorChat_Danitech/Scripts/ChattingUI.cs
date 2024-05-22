@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
-using Mirror.Examples.Chat;
 using System.Collections.Generic;
 using System.Collections;
 

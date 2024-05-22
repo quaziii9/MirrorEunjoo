@@ -70,7 +70,16 @@ public class NetworkingAuthenticator : NetworkAuthenticator
         }
         else
         {
+            _connectionsPendingDisconnect.Add(conn);
 
+            AuthResMsg authResMsg = new AuthResMsg
+            {
+                code = 200,
+                message = "User Name already in use! Try again!"
+            };
+
+            conn.Send(authResMsg);
+            conn.isAuthenticated = false;
         }
 
 

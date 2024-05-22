@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Mirror;
 using Mirror.Examples.Chat;
 using System.Collections.Generic;
+using System.Collections;
 
 public class ChattingUI : NetworkBehaviour
 {
@@ -54,11 +55,23 @@ public class ChattingUI : NetworkBehaviour
         AppendMessage(formatedMsg);
     }
 
+    // ===================== [UI] =================================
     void AppendMessage(string msg)
     {
-
+        StartCoroutine(AppendAndScroll(msg));
     }
 
+    IEnumerator AppendAndScroll(string msg)
+    {
+        Text_ChatHistory.text += msg + "\n";
+
+        yield return null;
+        yield return null;
+
+        ScrollBar_Chat.value = 0;
+    }
+
+    // ============================================================
 
     public void OnClick_SendMsg()
     {

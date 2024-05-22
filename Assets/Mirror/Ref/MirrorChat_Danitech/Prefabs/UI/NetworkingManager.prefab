@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7067090891632177518}
   - component: {fileID: 6055668625242371878}
+  - component: {fileID: 6640277595013985254}
   m_Layer: 0
   m_Name: NetworkingManager
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
-  authenticator: {fileID: 0}
+  authenticator: {fileID: 6640277595013985254}
   playerPrefab: {fileID: 0}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
@@ -80,3 +81,23 @@ MonoBehaviour:
   timeInterpolationGui: 0
   _loginPopup: {fileID: 0}
   _chattingUI: {fileID: 0}
+--- !u!114 &6640277595013985254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223786900835992580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9e2d39c3858074a828780c8d2bd6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnServerAuthenticated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClientAuthenticated:
+    m_PersistentCalls:
+      m_Calls: []
+  _loginPopup: {fileID: 0}
+  _playerName: 

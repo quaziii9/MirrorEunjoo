@@ -2485,6 +2485,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8743271644847083758}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnInputValueChanged_SetPlayerName
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: NetworkingAuthenticator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949467990653291422, guid: a0dc40807e776f448a4b91618150b242, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8819475229100118555, guid: a0dc40807e776f448a4b91618150b242, type: 3}
       propertyPath: m_Name
       value: LoginPopup
@@ -2522,6 +2550,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6612059052287301478}
     - target: {fileID: 6055668625242371878, guid: 7d9676d6569c4714ab422113a9028f39, type: 3}
+      propertyPath: _loginPopup
+      value: 
+      objectReference: {fileID: 7350320955725317609}
+    - target: {fileID: 6640277595013985254, guid: 7d9676d6569c4714ab422113a9028f39, type: 3}
       propertyPath: _loginPopup
       value: 
       objectReference: {fileID: 7350320955725317609}
@@ -2570,6 +2602,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d9676d6569c4714ab422113a9028f39, type: 3}
+--- !u!114 &8743271644847083758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6640277595013985254, guid: 7d9676d6569c4714ab422113a9028f39, type: 3}
+  m_PrefabInstance: {fileID: 8743271644847083757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9e2d39c3858074a828780c8d2bd6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

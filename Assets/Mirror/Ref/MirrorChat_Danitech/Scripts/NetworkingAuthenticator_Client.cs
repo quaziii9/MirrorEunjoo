@@ -34,7 +34,17 @@ public partial class NetworkingAuthenticator
 
     public void OnAuthResponseMessage(AuthResMsg msg)
     {
+        if(msg.code == 100) // 성공
+        {
+            Debug.Log($"Auth Response:{msg.code} {msg.message}");
+            ClientAccept();
+        }
+        else
+        {
+            Debug.LogError($"Auth Response: {msg.code} {msg.message}");
+            NetworkManager.singleton.StopHost();
 
+            _loginPopup.SetUIOnAuthError(msg.message);
+        }
     }
-
 }

@@ -8,4 +8,9 @@ public class ChatUser : NetworkBehaviour
     [SyncVar]
     public string _playerName;
 
+    // 호스트 또는 서버에서만 호출되는 함수
+    public override void OnStartServer()
+    {
+        _playerName = (string)connectionToClient.authenticationData;
+    }
 }

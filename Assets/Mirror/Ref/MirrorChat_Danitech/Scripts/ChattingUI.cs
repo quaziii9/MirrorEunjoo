@@ -38,8 +38,8 @@ public class ChattingUI : NetworkBehaviour
     {
         if (!_connectedNameDic.ContainsKey(sender))
         {
-            var player = sender.identity.GetComponent<Player>();
-            var playerName = player.playerName;
+            var player = sender.identity.GetComponent<ChatUser>();
+            var playerName = player.PlayerName;
             _connectedNameDic.Add(sender, playerName);
         }
 

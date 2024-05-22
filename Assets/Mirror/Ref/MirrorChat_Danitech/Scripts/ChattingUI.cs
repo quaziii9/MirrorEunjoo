@@ -35,6 +35,18 @@ public class ChattingUI : NetworkBehaviour
             var playerName = player.playerName;
             _connectedNameDic.Add(sender, playerName);
         }
+
+        if (!string.IsNullOrWhiteSpace(msg))
+        {
+            var senderName = _connectedNameDic[sender];
+            OnRecvMessage(senderName, msg.Trim());
+        }
+    }
+
+    [ClientRpc]
+    void OnRecvMessage(string senderName, string msg)
+    {
+
     }
 
 

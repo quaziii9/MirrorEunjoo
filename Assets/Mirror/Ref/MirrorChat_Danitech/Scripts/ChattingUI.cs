@@ -12,6 +12,8 @@ public class ChattingUI : NetworkBehaviour
     [SerializeField] InputField Input_ChatMsg;
     [SerializeField] Button Btn_Send;
 
+    internal static string _localPlayerName;
+
     // 서버 온리 - 연결된 플레이어들 이름
     internal static readonly Dictionary<NetworkConnectionToClient, string> _connectedNameDic = new Dictionary<NetworkConnectionToClient, string>();
     public override void OnStartServer()
@@ -53,6 +55,17 @@ public class ChattingUI : NetworkBehaviour
     // -클라들이 특정 시점에 모드 받기 때문에 "On"을 붙여 수동형 함수라는 것을 명시
     [ClientRpc]
     void OnRecvMessage(string senderName, string msg)
+    {
+        //- 전송자와 현재 플레이어의 이름 비교 후 메세지 포매팅(색깔 넣어줌)
+        string formatedMsg = (senderName == _localPlayerName) ?
+            $"<color=red>{senderName}:</color> {msg}" :
+            $"<color=blue>{senderName}:</color> {msg}";
+
+        AppendMessage(formatedMsg);
+    }
+
+    // -UI처리를 위한 AppendMessage 함수 추가
+    void AppendMessage(string msg)
     {
 
     }

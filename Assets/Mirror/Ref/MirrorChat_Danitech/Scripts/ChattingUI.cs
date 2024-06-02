@@ -8,28 +8,29 @@ using System.Collections;
 public class ChattingUI : NetworkBehaviour
 {
     [Header("UI")]
-    [SerializeField] Text Text_ChatHistory;
-    [SerializeField] Scrollbar ScrollBar_Chat;
-    [SerializeField] InputField Input_ChatMsg;
-    [SerializeField] Button Btn_Send;
+    [SerializeField] Text Text_ChatHistory;      // 채팅 기록을 표시할 텍스트 UI
+    [SerializeField] Scrollbar ScrollBar_Chat;   // 채팅 스크롤바
+    [SerializeField] InputField Input_ChatMsg;   // 채팅 메시지 입력 필드
+    [SerializeField] Button Btn_Send;            // 메시지 전송 버튼
 
-    internal static string _localPlayerName;
+    internal static string _localPlayerName;     // 로컬 플레이어 이름 저장
 
     // 서버 온리 - 연결된 플레이어들 이름
     internal static readonly Dictionary<NetworkConnectionToClient, string> _connectedNameDic = new Dictionary<NetworkConnectionToClient, string>();
     public override void OnStartServer()
     {
-        _connectedNameDic.Clear();
+        _connectedNameDic.Clear(); // 서버 시작 시 연결된 이름 목록 초기화
     }
 
     public override void OnStartClient()
     {
-        Text_ChatHistory.text = string.Empty;
+        Text_ChatHistory.text = string.Empty; // 클라이언트 시작 시 채팅 기록 초기화
     }
 
     // [Command] 라는 어트리뷰트를 이용해 클라 -> 서버로 특정 기능 수행을 요청
     // 예제의 경우는 CommandSendMsg라는 함수를 통해 서버에 메세지 송신
-    [Command(requiresAuthority = false)]
+    // requiresAuthority = false는 호출한 클라이언트가 이 객체에 대한 권한이 없어도 명령을 실행할 수 있음을 의미
+    [Command(requiresAuthority = false)] 
     void CommandSendMsg(string msg, NetworkConnectionToClient sender = null)
     {
         if(!_connectedNameDic.ContainsKey(sender))
@@ -43,7 +44,8 @@ public class ChattingUI : NetworkBehaviour
             _connectedNameDic.Add(sender, playerName);
         }
 
-            // -CommandSendMsg에 OnRecvMessage 함수 호출해 브로드캐스팅 부분 추가
+        // -CommandSendMsg에 OnRecvMessage 함수 호출해 브로드캐스팅 부분 추가
+        // 메시지가 유효하면 모든 클라이언트에 메시지 전송
         if (!string.IsNullOrWhiteSpace(msg))
         {
             var senderName = _connectedNameDic[sender];
@@ -74,20 +76,22 @@ public class ChattingUI : NetworkBehaviour
     }
 
 
-    //Unitask로 나중에 바꿔보기
+    // Unitask로 나중에 바꿔보기
     // - Text에 채팅 내용 추가, 스크롤 내려주기
     IEnumerator AppendAndScroll(string msg)
     {
         Text_ChatHistory.text += msg + "\n";
 
-        yield return null;
+        yield return null; // 한 프레임 대기
         yield return null;
 
-        ScrollBar_Chat.value = 0;
+        ScrollBar_Chat.value = 0; // 스크롤을 맨 아래로 내림
     }
 
     // ============================================================
 
+
+    // 메시지 전송 버튼 클릭 시 호출되는 함수
     public void OnClick_SendMsg()
     {
         var currentChatMsg = Input_ChatMsg.text;
@@ -97,22 +101,21 @@ public class ChattingUI : NetworkBehaviour
         }
     }
 
+    //끄기 버튼 처리
     public void OnClick_Exit()
-    {
-        //끄기 버튼 처리
+    {  
         NetworkManager.singleton.StopHost();
     }
 
+    // 채팅 입력 시 전송 버튼 활성화
     public void OnValueChange_ToggleButton(string input)
     {
-        // 채팅 입력 시 전송 버튼 활성화
         Btn_Send.interactable = !string.IsNullOrWhiteSpace(input);
     }
 
+    // 엔터 시 전송 함수 호출 메세지 전송
     public void OnEndEdit_SendMsg(string input)
-    {
-        
-        // 엔터 시 전송 함수 호출
+    {     
         if (Input.GetKeyDown(KeyCode.Return)
             || Input.GetKeyDown(KeyCode.KeypadEnter)
             || Input.GetButtonDown("Submit"))

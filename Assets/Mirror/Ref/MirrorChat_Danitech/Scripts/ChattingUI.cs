@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Mirror;
 using Mirror.Examples.Chat;
 using System.Collections.Generic;
+using System.Collections;
 
 public class ChattingUI : NetworkBehaviour
 {
@@ -64,11 +65,28 @@ public class ChattingUI : NetworkBehaviour
         AppendMessage(formatedMsg);
     }
 
+
+    // ===================== [UI] =================================
     // -UI처리를 위한 AppendMessage 함수 추가
     void AppendMessage(string msg)
     {
-
+        StartCoroutine(AppendAndScroll(msg));
     }
+
+
+    //Unitask로 나중에 바꿔보기
+    // - Text에 채팅 내용 추가, 스크롤 내려주기
+    IEnumerator AppendAndScroll(string msg)
+    {
+        Text_ChatHistory.text += msg + "\n";
+
+        yield return null;
+        yield return null;
+
+        ScrollBar_Chat.value = 0;
+    }
+
+    // ============================================================
 
     public void OnClick_SendMsg()
     {

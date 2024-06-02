@@ -65,7 +65,8 @@
     <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Tank.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\LoginUI.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scenes\LoginPopup.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\LoginPopup.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChattingUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

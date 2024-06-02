@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using Mirror.Examples.Chat;
 using System.Collections.Generic;
 
 public class ChattingUI : NetworkBehaviour
@@ -26,7 +27,12 @@ public class ChattingUI : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CommandSendMsg(string msg, NetworkConnectionToClient sender = null)
     {
-
+        if(!_connectedNameDic.ContainsKey(sender))
+        {
+            var player = sender.identity.GetComponent<Player>();
+            var playerName = player.playerName;
+            _connectedNameDic.Add(sender, playerName);
+        }
     }
 
     public void OnClick_SendMsg()

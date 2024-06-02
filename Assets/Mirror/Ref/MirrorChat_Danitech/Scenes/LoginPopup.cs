@@ -12,7 +12,7 @@ public class LoginPopup : MonoBehaviour
 
     [SerializeField] internal Text Text_Error;
 
-    public static LoginPopup instance;
+    public static LoginPopup instance { get; private set; }
 
     private void Awake()
     {

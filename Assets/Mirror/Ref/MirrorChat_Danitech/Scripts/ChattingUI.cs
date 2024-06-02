@@ -96,4 +96,28 @@ public class ChattingUI : NetworkBehaviour
             CommandSendMsg(currentChatMsg.Trim());
         }
     }
+
+    public void OnClick_Exit()
+    {
+        //끄기 버튼 처리
+        NetworkManager.singleton.StopHost();
+    }
+
+    public void OnValueChange_ToggleButton(string input)
+    {
+        // 채팅 입력 시 전송 버튼 활성화
+        Btn_Send.interactable = !string.IsNullOrWhiteSpace(input);
+    }
+
+    public void OnEndEdit_SendMsg(string input)
+    {
+        
+        // 엔터 시 전송 함수 호출
+        if (Input.GetKeyDown(KeyCode.Return)
+            || Input.GetKeyDown(KeyCode.KeypadEnter)
+            || Input.GetButtonDown("Submit"))
+        {
+            OnClick_SendMsg();
+        }
+    }
 }

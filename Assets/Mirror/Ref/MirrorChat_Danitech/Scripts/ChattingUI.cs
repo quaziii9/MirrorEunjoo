@@ -22,4 +22,12 @@ public class ChattingUI : NetworkBehaviour
     {
         Text_ChatHistory.text = string.Empty;
     }
+
+    public void OnClick_SendMsg()
+    {
+        if(!string.IsNullOrWhiteSpace(Input_ChatMsg.text))
+        {
+
+        }
+    }
 }

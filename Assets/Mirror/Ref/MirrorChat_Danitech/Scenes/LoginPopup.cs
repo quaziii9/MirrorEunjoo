@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoginPopup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("UI")]
+    [SerializeField] internal InputField Input_NetworkAdress;
+    [SerializeField] internal InputField Input_UserName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] internal Button Btn_StartAsHostServer;
+    [SerializeField] internal Button Btn_StartAsClient;
+
+    [SerializeField] internal Text Text_Error;
 }

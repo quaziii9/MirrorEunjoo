@@ -11,4 +11,11 @@ public class LoginPopup : MonoBehaviour
     [SerializeField] internal Button Btn_StartAsClient;
 
     [SerializeField] internal Text Text_Error;
+
+    public static LoginPopup instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 }

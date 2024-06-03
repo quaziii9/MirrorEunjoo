@@ -87,7 +87,6 @@ public class ChattingUI : NetworkBehaviour
 
         ScrollBar_Chat.value = 0; // 스크롤을 맨 아래로 내림
     }
-
     // ============================================================
 
 

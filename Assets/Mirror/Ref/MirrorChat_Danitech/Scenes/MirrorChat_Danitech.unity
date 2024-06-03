@@ -2093,6 +2093,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1167623396160677633, guid: cce3e48dde73f7d448ee1fdac8133cc6, type: 3}
+      propertyPath: _loginPopup
+      value: 
+      objectReference: {fileID: 786673730}
     - target: {fileID: 5324033127565341535, guid: cce3e48dde73f7d448ee1fdac8133cc6, type: 3}
       propertyPath: _chattingUI
       value: 
@@ -2101,6 +2105,14 @@ PrefabInstance:
       propertyPath: _loginPopup
       value: 
       objectReference: {fileID: 786673730}
+    - target: {fileID: 5324033127565341535, guid: cce3e48dde73f7d448ee1fdac8133cc6, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 5075528875289742095, guid: 151d2ac7c74d50446a8708f18bf58a3f, type: 3}
+    - target: {fileID: 5324033127565341535, guid: cce3e48dde73f7d448ee1fdac8133cc6, type: 3}
+      propertyPath: dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6382798944863752904, guid: cce3e48dde73f7d448ee1fdac8133cc6, type: 3}
       propertyPath: m_Name
       value: NetworkManager

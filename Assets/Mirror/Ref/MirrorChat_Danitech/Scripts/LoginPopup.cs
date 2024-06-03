@@ -35,6 +35,10 @@ public class LoginPopup : MonoBehaviour
         // 기본 네트워크 주소를 설정하는 메서드 호출
         SetDefaultNetworkAddress();
     }
+    private void Update()
+    {
+        CheckNatworkAddressValidOnUpdate();
+    }
 
     private void OnEnable()
     {

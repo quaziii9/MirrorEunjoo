@@ -16,6 +16,8 @@ public class LoginPopup : MonoBehaviour
 
     [SerializeField] internal Text Text_Error;
 
+    [SerializeField] NetworkingManager _netManager;
+
     // LoginPopup 클래스의 정적 인스턴스 변수(단일 인스턴스를 저장)
     // private set을 사용하여 외부에서 인스턴스 변경할수 없음
     public static LoginPopup instance { get; private set; }
@@ -28,6 +30,7 @@ public class LoginPopup : MonoBehaviour
         // instance를 현재 객체로 설정하여 싱글톤 인스턴스 초기화,
         // Loginpopup 클래스의 인스턴스가 하나만 존재하도록 보장
         instance = this;
+        Text_Error.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -114,5 +117,23 @@ public class LoginPopup : MonoBehaviour
         bool isUserNameValid = !string.IsNullOrWhiteSpace(userName);
         Btn_StartAsHostServer.interactable = isUserNameValid;
         Btn_StartAsClient.interactable = isUserNameValid;
+    }
+
+    public void OnClick_StartAsHost()
+    {
+        if (_netManager == null)
+            return;
+
+        _netManager.StartHost();
+        this.gameObject.SetActive(false);
+    }
+
+    public void OnClick_StartAsClient()
+    {
+        if (_netManager == null)
+            return;
+
+        _netManager.StartClient();
+        this.gameObject.SetActive(false);
     }
 }

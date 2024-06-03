@@ -25,11 +25,13 @@ public class ChattingUI : NetworkBehaviour
     
     public override void OnStartServer()
     {
+        this.gameObject.SetActive(true);
         _connectedNameDic.Clear(); // 서버 시작 시 연결된 이름 목록 초기화
     }
 
     public override void OnStartClient()
     {
+        this.gameObject.SetActive(true);
         Text_ChatHistory.text = string.Empty; // 클라이언트 시작 시 채팅 기록 초기화
     }
 

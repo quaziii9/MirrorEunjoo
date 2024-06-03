@@ -10,7 +10,7 @@ public partial class NetworkingAuthenticator
     [Header("Client Username")]
     public string _playerName;
 
-    public void SetPlayerName(string username)
+    public void OnInputValueChanged_SetPlayerName(string username)
     {
         _playerName = username;
         // UI를 업데이트

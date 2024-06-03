@@ -58,19 +58,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingManager.cs" />
     <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChattingUI.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChatUser.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatUI.cs" />
     <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Projectile.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\Player.cs" />
     <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\LoginPopup.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatAuthenticator.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator_Client.cs" />
     <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Tank.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\LoginUI.cs" />
     <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatNetworkManager.cs" />
-    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingManager.cs" />
-    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator.cs" />
-    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator_Client.cs" />
-    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChatUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
@@ -466,6 +466,14 @@
     </Reference>
     <Reference Include="Mono.CecilX.Mdb">
       <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.36f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1070,10 +1078,6 @@
       <Project>{FB95650F-C010-FBAB-D6BD-90873F9E7AF6}</Project>
       <Name>Mirror.Hosting</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{4C91D217-F677-F664-2AAA-BA3ED8DC5720}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="Mirror.Transports.csproj">
       <Project>{85ED18FE-9BE6-E54D-41C3-D66FB582FABE}</Project>
       <Name>Mirror.Transports</Name>
@@ -1105,6 +1109,10 @@
     <ProjectReference Include="EncryptionTransportEditor.csproj">
       <Project>{8857ADA5-43BE-3A7A-A43F-3218B03094BD}</Project>
       <Name>EncryptionTransportEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{4C91D217-F677-F664-2AAA-BA3ED8DC5720}</Project>
+      <Name>Mirror.Examples</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

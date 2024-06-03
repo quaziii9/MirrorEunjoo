@@ -95,6 +95,19 @@ public class LoginPopup : MonoBehaviour
         Input_UserName.ActivateInputField();
     }
 
+    // 인증값이 변경될때 ui 업데이트
+    public void SetUIOnAuthValueChanged()
+    {
+        Text_Error.text = string.Empty;
+        Text_Error.gameObject.SetActive(false);
+    }
+
+    public void SetUIOnAuthError(string msg)
+    {
+        Text_Error.text = msg;
+        Text_Error.gameObject.SetActive(true);
+    }
+
     public void OnValueChanged_ToggleButton(string userName)
     {
         //  값이 변경될때 호출, 비어있지 않은 경우 버튼을 활성화

@@ -5,7 +5,7 @@ using Mirror;
 
 // conn(connection) : 클라이언트와 서버 간의 네트워크 연결을 나타내는 객체
 
-public class NetworkingAuthenticator : NetworkAuthenticator
+public partial class NetworkingAuthenticator : NetworkAuthenticator
 {
     // _connectionPendingDisconnect : 연결을 끊을 예정인 클라이언트 목록
     // _playerNames : 인증된 사용자 이름 목록

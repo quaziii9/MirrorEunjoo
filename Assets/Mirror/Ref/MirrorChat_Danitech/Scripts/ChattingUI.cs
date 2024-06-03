@@ -17,6 +17,12 @@ public class ChattingUI : NetworkBehaviour
 
     // 서버 온리 - 연결된 플레이어들 이름
     internal static readonly Dictionary<NetworkConnectionToClient, string> _connectedNameDic = new Dictionary<NetworkConnectionToClient, string>();
+    
+    public void SetLocalPlayerName(string userName)
+    {
+        _localPlayerName = userName;
+    }
+    
     public override void OnStartServer()
     {
         _connectedNameDic.Clear(); // 서버 시작 시 연결된 이름 목록 초기화
@@ -39,8 +45,8 @@ public class ChattingUI : NetworkBehaviour
             // -가져온 playerName을 Dictionary에 보관
             // - Player 자료형을 가져올 수 있도록 using Mirror.Examples.Chat을 선언
 
-            var player = sender.identity.GetComponent<Player>();
-            var playerName = player.playerName;
+            var player = sender.identity.GetComponent<ChatUser>();
+            var playerName = player.PlayerName;
             _connectedNameDic.Add(sender, playerName);
         }
 

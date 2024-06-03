@@ -70,6 +70,7 @@
     <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingManager.cs" />
     <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator.cs" />
     <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator_Client.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChatUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

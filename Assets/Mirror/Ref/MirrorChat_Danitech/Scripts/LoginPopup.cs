@@ -86,6 +86,15 @@ public class LoginPopup : MonoBehaviour
         }
     }
 
+    public void SetUIOnClientDisconnected()
+    {
+        this.gameObject.SetActive(true);
+        // 사용자 이름 입력 필드의 내용을 지움
+        Input_UserName.text = string.Empty;
+        // 사용자 이름 입력 필드에 포커스를 맞춤
+        Input_UserName.ActivateInputField();
+    }
+
     public void OnValueChanged_ToggleButton(string userName)
     {
         //  값이 변경될때 호출, 비어있지 않은 경우 버튼을 활성화

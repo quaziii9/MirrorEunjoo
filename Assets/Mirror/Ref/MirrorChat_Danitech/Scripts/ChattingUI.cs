@@ -56,6 +56,14 @@ public class ChattingUI : NetworkBehaviour
     // -서버사이드에서 모든 클라이언트에게 특정 함수를 실행시킬 수 있도록[ClientRpc]를 붙임
     // - [ClientRpc]를 붙인 OnRecvMessage() 함수 추가
     // -클라들이 특정 시점에 모드 받기 때문에 "On"을 붙여 수동형 함수라는 것을 명시
+    
+    public void RemoveNameOnServerDisonnect(NetworkConnectionToClient conn)
+    {
+        _connectedNameDic.Remove(conn);
+    }
+    
+    
+    
     [ClientRpc]
     void OnRecvMessage(string senderName, string msg)
     {

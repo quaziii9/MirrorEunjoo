@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2EECDACF-D769-427E-BE96-2ABEAD51350C}</ProjectGuid>
+    <ProjectGuid>{1403FED8-5D22-23FC-1E79-4A0206842E5D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,19 +60,17 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatAuthenticator.cs" />
-    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatUI.cs" />
-    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scenes\LoginPopup.cs" />
-    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\LoginUI.cs" />
-    <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Tank.cs" />
-    <Compile Include="Assets\Mirror\Ref\Tanks\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\Player.cs" />
-    <Compile Include="Assets\Mirror\Ref\Chat\Scripts\ChatNetworkManager.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChattingUI.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\ChatUser.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingManager.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorGame_NetDoggie\Scripts\NetSpawnedObject.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\LoginPopup.cs" />
+    <Compile Include="Assets\Mirror\Ref\MirrorChat_Danitech\Scripts\NetworkingAuthenticator_Client.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll" />
-    <None Include="Assets\Mirror\Ref\Tanks\Textures\(Public Domain) Dirt Hand Painted Texture\Dirt Hand Painted Texture - License.txt" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll" />
     <None Include="Assets\Mirror\Plugins\BouncyCastle\BouncyCastle.Cryptography.dll" />
@@ -80,8 +78,6 @@
     <None Include="Assets\Mirror\Readme.txt" />
     <None Include="Assets\Mirror\Notice.txt" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
-    <None Include="Assets\Mirror\Ref\Tanks\Models\(Public Domain) Recon_Tank\Recon_Tank - License.txt" />
-    <None Include="Assets\Mirror\Ref\Tanks\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -416,8 +412,28 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.CecilX">
+      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.CecilX.Mdb">
+      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.5\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.CecilX.Pdb">
+      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.CecilX.Rocks">
+      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography">
+      <HintPath>Assets\Mirror\Plugins\BouncyCastle\BouncyCastle.Cryptography.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
@@ -428,24 +444,24 @@
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.CecilX.Mdb">
-      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll</HintPath>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.CecilX.Pdb">
-      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll</HintPath>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="BouncyCastle.Cryptography">
-      <HintPath>Assets\Mirror\Plugins\BouncyCastle\BouncyCastle.Cryptography.dll</HintPath>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.CecilX">
-      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.CecilX.Rocks">
-      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
+    <Reference Include="Unity.Android.GradleProject">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -940,6 +956,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1008,6 +1028,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1020,8 +1044,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
@@ -1031,51 +1063,47 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.Editor.csproj">
-      <Project>{0AC07D4B-D1E9-A7CC-3BD0-904D724223F8}</Project>
+      <Project>{668C6D16-5625-A97F-6689-DFF431676E20}</Project>
       <Name>Mirror.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="EncryptionTransportEditor.csproj">
-      <Project>{BB62B248-9636-B617-43AA-165E4D77A494}</Project>
+      <Project>{8857ADA5-43BE-3A7A-A43F-3218B03094BD}</Project>
       <Name>EncryptionTransportEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
-      <Project>{ECA4094E-C27D-626F-1B51-FA014D81FCFB}</Project>
+      <Project>{E0E113AD-E90F-4F63-475E-EA8F6AD618B0}</Project>
       <Name>Mirror</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Transports.csproj">
-      <Project>{3B99D510-2BB0-67B6-F11D-EEB436F6D82F}</Project>
+      <Project>{85ED18FE-9BE6-E54D-41C3-D66FB582FABE}</Project>
       <Name>Mirror.Transports</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{23867BF8-9AB3-4639-32C4-00FAD1C4255E}</Project>
+      <Project>{B1D1443F-61C0-8B39-1AF0-51D8B15F1EBF}</Project>
       <Name>Mirror.Components</Name>
     </ProjectReference>
     <ProjectReference Include="Telepathy.csproj">
-      <Project>{EB27534E-585E-9563-D249-4908C4DA0A73}</Project>
+      <Project>{36927D96-FF1D-BF39-4C3D-D0F38B649609}</Project>
       <Name>Telepathy</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
-      <Project>{EAF7B984-A0D4-C139-7BDB-1CC7B5BCC434}</Project>
+      <Project>{FF634D48-BDE1-00E7-F29D-9CD64AD2FACF}</Project>
       <Name>SimpleWebTransport</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
-      <Project>{56E31131-E87B-3B64-3171-CBD47140212A}</Project>
+      <Project>{B5090C19-37F7-62F8-8D5C-09D87C5B9738}</Project>
       <Name>Mirror.CompilerSymbols</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Authenticators.csproj">
-      <Project>{645B8C4F-4B19-90EB-3B6A-6C57C6FE909A}</Project>
+      <Project>{D0641414-A07D-2952-2F2D-6571FD97821B}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{151C2ED5-AE2F-9FC7-DCA1-FA498205756E}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="Mirror.Hosting.csproj">
-      <Project>{BA7A62D9-98B3-9669-C5B1-BBFFD42EAEC0}</Project>
+      <Project>{FB95650F-C010-FBAB-D6BD-90873F9E7AF6}</Project>
       <Name>Mirror.Hosting</Name>
     </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
-      <Project>{994C3B5D-200C-0890-69BB-EE8A4269F82C}</Project>
+      <Project>{E2CAC746-88C4-131D-3D99-B57A6B58FDD0}</Project>
       <Name>kcp2k</Name>
     </ProjectReference>
   </ItemGroup>

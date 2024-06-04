@@ -5,7 +5,7 @@ using Mirror;
 public class LoginPopup : MonoBehaviour
 {
     // internal
-    // µ¿ÀÏ ¾î¼Àºí¸®(ÇÁ·ÎÁ§Æ®) ³»¿¡¼­¸¸ Á¢±Ù°¡´É
+    // ë™ì¼ ì–´ì…ˆë¸”ë¦¬(í”„ë¡œì íŠ¸) ë‚´ì—ì„œë§Œ ì ‘ê·¼ê°€ëŠ¥
 
     [Header("UI")]
     [SerializeField] internal InputField Input_NetworkAdress;
@@ -18,24 +18,24 @@ public class LoginPopup : MonoBehaviour
 
     [SerializeField] NetworkingManager _netManager;
 
-    // LoginPopup Å¬·¡½ºÀÇ Á¤Àû ÀÎ½ºÅÏ½º º¯¼ö(´ÜÀÏ ÀÎ½ºÅÏ½º¸¦ ÀúÀå)
-    // private setÀ» »ç¿ëÇÏ¿© ¿ÜºÎ¿¡¼­ ÀÎ½ºÅÏ½º º¯°æÇÒ¼ö ¾øÀ½
+    // LoginPopup í´ë˜ìŠ¤ì˜ ì •ì  ì¸ìŠ¤í„´ìŠ¤ ë³€ìˆ˜(ë‹¨ì¼ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì €ì¥)
+    // private setì„ ì‚¬ìš©í•˜ì—¬ ì™¸ë¶€ì—ì„œ ì¸ìŠ¤í„´ìŠ¤ ë³€ê²½í• ìˆ˜ ì—†ìŒ
     public static LoginPopup instance { get; private set; }
 
-    // ³×Æ®¿öÅ© ÁÖ¼ÒÀÇ ±âº»°ª ÀúÀå 
+    // ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œì˜ ê¸°ë³¸ê°’ ì €ì¥ 
     private string _originNetworkAddress;
 
     private void Awake()
     {
-        // instance¸¦ ÇöÀç °´Ã¼·Î ¼³Á¤ÇÏ¿© ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ÃÊ±âÈ­,
-        // Loginpopup Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º°¡ ÇÏ³ª¸¸ Á¸ÀçÇÏµµ·Ï º¸Àå
+        // instanceë¥¼ í˜„ì¬ ê°ì²´ë¡œ ì„¤ì •í•˜ì—¬ ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ì´ˆê¸°í™”,
+        // Loginpopup í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ê°€ í•˜ë‚˜ë§Œ ì¡´ì¬í•˜ë„ë¡ ë³´ì¥
         instance = this;
         Text_Error.gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        // ±âº» ³×Æ®¿öÅ© ÁÖ¼Ò¸¦ ¼³Á¤ÇÏ´Â ¸Ş¼­µå È£Ãâ
+        // ê¸°ë³¸ ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œë¥¼ ì„¤ì •í•˜ëŠ” ë©”ì„œë“œ í˜¸ì¶œ
         SetDefaultNetworkAddress();
     }
     private void Update()
@@ -45,44 +45,44 @@ public class LoginPopup : MonoBehaviour
 
     private void OnEnable()
     {
-        // »ç¿ëÀÚ ÀÌ¸§ ÀÔ·Â ÇÊµåÀÇ °ª º¯°æ ÀÌº¥Æ® ¸®½º³Ê µî·Ï
+        // ì‚¬ìš©ì ì´ë¦„ ì…ë ¥ í•„ë“œì˜ ê°’ ë³€ê²½ ì´ë²¤íŠ¸ ë¦¬ìŠ¤ë„ˆ ë“±ë¡
         Input_UserName.onValueChanged.AddListener(OnValueChanged_ToggleButton);
     }
 
     private void OnDisable()
     {
-        // »ç¿ëÀÚ ÀÌ¸§ ÀÔ·Â ÇÊµåÀÇ °ª º¯°æ ÀÌº¥Æ® ¸®½º³Ê ÇØÁ¦
+        // ì‚¬ìš©ì ì´ë¦„ ì…ë ¥ í•„ë“œì˜ ê°’ ë³€ê²½ ì´ë²¤íŠ¸ ë¦¬ìŠ¤ë„ˆ í•´ì œ
         Input_UserName.onValueChanged.RemoveListener(OnValueChanged_ToggleButton);
     }
 
     private void SetDefaultNetworkAddress()
     {
-        // ³×Æ®¿öÅ© ÁÖ¼Ò ¾ø´Â °æ¿ì, µğÆúÆ® ¼¼ÆÃ
-        // IsNullOrWhiteSpace : ¹®ÀÚ¿­ÀÌ 'null', ºó¹®ÀÚ¿­, ¶Ç´Â °ø¹é¹®ÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ´ÂÁö È®ÀÎ
+        // ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œ ì—†ëŠ” ê²½ìš°, ë””í´íŠ¸ ì„¸íŒ…
+        // IsNullOrWhiteSpace : ë¬¸ìì—´ì´ 'null', ë¹ˆë¬¸ìì—´, ë˜ëŠ” ê³µë°±ë¬¸ìë¡œë§Œ ì´ë£¨ì–´ì ¸ ìˆëŠ”ì§€ í™•ì¸
 
-        // ¿¹Á¦
+        // ì˜ˆì œ
         // string input = "   ";
         // bool isNullOrWhiteSpace = string.IsNullOrWhiteSpace(input);
-        // isNullOrWhiteSpace´Â true°¡ µÊ
+        // isNullOrWhiteSpaceëŠ” trueê°€ ë¨
         if (string.IsNullOrWhiteSpace(NetworkManager.singleton.networkAddress))
         {
             NetworkManager.singleton.networkAddress = "localhost";
         }
 
-        // ³×Æ®¿öÅ© ÁÖ¼Ò °ø¶õÀ¸·Î º¯°æµÉ °æ¿ì¸¦ ´ëºñÇØ ±âÁ¸ ³×Æ®¿öÅ© ÁÖ¼Ò º¸°ü
+        // ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œ ê³µë€ìœ¼ë¡œ ë³€ê²½ë  ê²½ìš°ë¥¼ ëŒ€ë¹„í•´ ê¸°ì¡´ ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œ ë³´ê´€
         _originNetworkAddress = NetworkManager.singleton.networkAddress;
     }
 
 
     private void CheckNatworkAddressValidOnUpdate()
     {
-        // ³×Æ®¿öÅ© ÁÖ¼Ò°¡ À¯È¿ÇÏÁö¾ÊÀ¸¸é _originNetworkAddress·Î µÇµ¹¸²
+        // ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œê°€ ìœ íš¨í•˜ì§€ì•Šìœ¼ë©´ _originNetworkAddressë¡œ ë˜ëŒë¦¼
         if(string.IsNullOrWhiteSpace(NetworkManager.singleton.networkAddress))
         {
             NetworkManager.singleton.networkAddress = _originNetworkAddress;
         }
 
-        // ÀÔ·ÂµÈ ³×Æ®¿öÅ© ÁÖ¼Ò°¡ ÇöÀç ³×Æ®¿öÅ© ¸Å´ÏÀúÀÇ ÁÖ¼Ò¿Í ÀÏÄ¡ÇÏÁö ¾ÊÀ»½Ã µ¿±âÈ­
+        // ì…ë ¥ëœ ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œê°€ í˜„ì¬ ë„¤íŠ¸ì›Œí¬ ë§¤ë‹ˆì €ì˜ ì£¼ì†Œì™€ ì¼ì¹˜í•˜ì§€ ì•Šì„ì‹œ ë™ê¸°í™”
         if(Input_NetworkAdress.text != NetworkManager.singleton.networkAddress)
         {
             Input_NetworkAdress.text = NetworkManager.singleton.networkAddress;
@@ -92,13 +92,13 @@ public class LoginPopup : MonoBehaviour
     public void SetUIOnClientDisconnected()
     {
         this.gameObject.SetActive(true);
-        // »ç¿ëÀÚ ÀÌ¸§ ÀÔ·Â ÇÊµåÀÇ ³»¿ëÀ» Áö¿ò
+        // ì‚¬ìš©ì ì´ë¦„ ì…ë ¥ í•„ë“œì˜ ë‚´ìš©ì„ ì§€ì›€
         Input_UserName.text = string.Empty;
-        // »ç¿ëÀÚ ÀÌ¸§ ÀÔ·Â ÇÊµå¿¡ Æ÷Ä¿½º¸¦ ¸ÂÃã
+        // ì‚¬ìš©ì ì´ë¦„ ì…ë ¥ í•„ë“œì— í¬ì»¤ìŠ¤ë¥¼ ë§ì¶¤
         Input_UserName.ActivateInputField();
     }
 
-    // ÀÎÁõ°ªÀÌ º¯°æµÉ¶§ ui ¾÷µ¥ÀÌÆ®
+    // ì¸ì¦ê°’ì´ ë³€ê²½ë ë•Œ ui ì—…ë°ì´íŠ¸
     public void SetUIOnAuthValueChanged()
     {
         Text_Error.text = string.Empty;
@@ -113,7 +113,7 @@ public class LoginPopup : MonoBehaviour
 
     public void OnValueChanged_ToggleButton(string userName)
     {
-        //  °ªÀÌ º¯°æµÉ¶§ È£Ãâ, ºñ¾îÀÖÁö ¾ÊÀº °æ¿ì ¹öÆ°À» È°¼ºÈ­
+        //  ê°’ì´ ë³€ê²½ë ë•Œ í˜¸ì¶œ, ë¹„ì–´ìˆì§€ ì•Šì€ ê²½ìš° ë²„íŠ¼ì„ í™œì„±í™”
         bool isUserNameValid = !string.IsNullOrWhiteSpace(userName);
         Btn_StartAsHostServer.interactable = isUserNameValid;
         Btn_StartAsClient.interactable = isUserNameValid;

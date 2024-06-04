@@ -8,14 +8,14 @@ using System.Collections;
 public class ChattingUI : NetworkBehaviour
 {
     [Header("UI")]
-    [SerializeField] Text Text_ChatHistory;      // Ã¤ÆÃ ±â·ÏÀ» Ç¥½ÃÇÒ ÅØ½ºÆ® UI
-    [SerializeField] Scrollbar ScrollBar_Chat;   // Ã¤ÆÃ ½ºÅ©·Ñ¹Ù
-    [SerializeField] InputField Input_ChatMsg;   // Ã¤ÆÃ ¸Ş½ÃÁö ÀÔ·Â ÇÊµå
-    [SerializeField] Button Btn_Send;            // ¸Ş½ÃÁö Àü¼Û ¹öÆ°
+    [SerializeField] Text Text_ChatHistory;      // ì±„íŒ… ê¸°ë¡ì„ í‘œì‹œí•  í…ìŠ¤íŠ¸ UI
+    [SerializeField] Scrollbar ScrollBar_Chat;   // ì±„íŒ… ìŠ¤í¬ë¡¤ë°”
+    [SerializeField] InputField Input_ChatMsg;   // ì±„íŒ… ë©”ì‹œì§€ ì…ë ¥ í•„ë“œ
+    [SerializeField] Button Btn_Send;            // ë©”ì‹œì§€ ì „ì†¡ ë²„íŠ¼
 
-    internal static string _localPlayerName;     // ·ÎÄÃ ÇÃ·¹ÀÌ¾î ÀÌ¸§ ÀúÀå
+    internal static string _localPlayerName;     // ë¡œì»¬ í”Œë ˆì´ì–´ ì´ë¦„ ì €ì¥
 
-    // ¼­¹ö ¿Â¸® - ¿¬°áµÈ ÇÃ·¹ÀÌ¾îµé ÀÌ¸§
+    // ì„œë²„ ì˜¨ë¦¬ - ì—°ê²°ëœ í”Œë ˆì´ì–´ë“¤ ì´ë¦„
     internal static readonly Dictionary<NetworkConnectionToClient, string> _connectedNameDic = new Dictionary<NetworkConnectionToClient, string>();
     
     public void SetLocalPlayerName(string userName)
@@ -26,34 +26,34 @@ public class ChattingUI : NetworkBehaviour
     public override void OnStartServer()
     {
         this.gameObject.SetActive(true);
-        _connectedNameDic.Clear(); // ¼­¹ö ½ÃÀÛ ½Ã ¿¬°áµÈ ÀÌ¸§ ¸ñ·Ï ÃÊ±âÈ­
+        _connectedNameDic.Clear(); // ì„œë²„ ì‹œì‘ ì‹œ ì—°ê²°ëœ ì´ë¦„ ëª©ë¡ ì´ˆê¸°í™”
     }
 
     public override void OnStartClient()
     {
         this.gameObject.SetActive(true);
-        Text_ChatHistory.text = string.Empty; // Å¬¶óÀÌ¾ğÆ® ½ÃÀÛ ½Ã Ã¤ÆÃ ±â·Ï ÃÊ±âÈ­
+        Text_ChatHistory.text = string.Empty; // í´ë¼ì´ì–¸íŠ¸ ì‹œì‘ ì‹œ ì±„íŒ… ê¸°ë¡ ì´ˆê¸°í™”
     }
 
-    // [Command] ¶ó´Â ¾îÆ®¸®ºäÆ®¸¦ ÀÌ¿ëÇØ Å¬¶ó -> ¼­¹ö·Î Æ¯Á¤ ±â´É ¼öÇàÀ» ¿äÃ»
-    // ¿¹Á¦ÀÇ °æ¿ì´Â CommandSendMsg¶ó´Â ÇÔ¼ö¸¦ ÅëÇØ ¼­¹ö¿¡ ¸Ş¼¼Áö ¼Û½Å
-    // requiresAuthority = false´Â È£ÃâÇÑ Å¬¶óÀÌ¾ğÆ®°¡ ÀÌ °´Ã¼¿¡ ´ëÇÑ ±ÇÇÑÀÌ ¾ø¾îµµ ¸í·ÉÀ» ½ÇÇàÇÒ ¼ö ÀÖÀ½À» ÀÇ¹Ì
+    // [Command] ë¼ëŠ” ì–´íŠ¸ë¦¬ë·°íŠ¸ë¥¼ ì´ìš©í•´ í´ë¼ -> ì„œë²„ë¡œ íŠ¹ì • ê¸°ëŠ¥ ìˆ˜í–‰ì„ ìš”ì²­
+    // ì˜ˆì œì˜ ê²½ìš°ëŠ” CommandSendMsgë¼ëŠ” í•¨ìˆ˜ë¥¼ í†µí•´ ì„œë²„ì— ë©”ì„¸ì§€ ì†¡ì‹ 
+    // requiresAuthority = falseëŠ” í˜¸ì¶œí•œ í´ë¼ì´ì–¸íŠ¸ê°€ ì´ ê°ì²´ì— ëŒ€í•œ ê¶Œí•œì´ ì—†ì–´ë„ ëª…ë ¹ì„ ì‹¤í–‰í•  ìˆ˜ ìˆìŒì„ ì˜ë¯¸
     [Command(requiresAuthority = false)] 
     void CommandSendMsg(string msg, NetworkConnectionToClient sender = null)
     {
         if(!_connectedNameDic.ContainsKey(sender))
         {
-            // -GetComponent·Î Player¸¦ °¡Á®¿À°í, PlayerÀÇ playerName °¡Á®¿È
-            // -°¡Á®¿Â playerNameÀ» Dictionary¿¡ º¸°ü
-            // - Player ÀÚ·áÇüÀ» °¡Á®¿Ã ¼ö ÀÖµµ·Ï using Mirror.Examples.ChatÀ» ¼±¾ğ
+            // -GetComponentë¡œ Playerë¥¼ ê°€ì ¸ì˜¤ê³ , Playerì˜ playerName ê°€ì ¸ì˜´
+            // -ê°€ì ¸ì˜¨ playerNameì„ Dictionaryì— ë³´ê´€
+            // - Player ìë£Œí˜•ì„ ê°€ì ¸ì˜¬ ìˆ˜ ìˆë„ë¡ using Mirror.Examples.Chatì„ ì„ ì–¸
 
             var player = sender.identity.GetComponent<ChatUser>();
             var playerName = player.PlayerName;
             _connectedNameDic.Add(sender, playerName);
         }
 
-        // -CommandSendMsg¿¡ OnRecvMessage ÇÔ¼ö È£ÃâÇØ ºê·ÎµåÄ³½ºÆÃ ºÎºĞ Ãß°¡
-        // ¸Ş½ÃÁö°¡ À¯È¿ÇÏ¸é ¸ğµç Å¬¶óÀÌ¾ğÆ®¿¡ ¸Ş½ÃÁö Àü¼Û
+        // -CommandSendMsgì— OnRecvMessage í•¨ìˆ˜ í˜¸ì¶œí•´ ë¸Œë¡œë“œìºìŠ¤íŒ… ë¶€ë¶„ ì¶”ê°€
+        // ë©”ì‹œì§€ê°€ ìœ íš¨í•˜ë©´ ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì— ë©”ì‹œì§€ ì „ì†¡
         if (!string.IsNullOrWhiteSpace(msg))
         {
             var senderName = _connectedNameDic[sender];
@@ -61,9 +61,9 @@ public class ChattingUI : NetworkBehaviour
         }
     }
 
-    // -¼­¹ö»çÀÌµå¿¡¼­ ¸ğµç Å¬¶óÀÌ¾ğÆ®¿¡°Ô Æ¯Á¤ ÇÔ¼ö¸¦ ½ÇÇà½ÃÅ³ ¼ö ÀÖµµ·Ï[ClientRpc]¸¦ ºÙÀÓ
-    // - [ClientRpc]¸¦ ºÙÀÎ OnRecvMessage() ÇÔ¼ö Ãß°¡
-    // -Å¬¶óµéÀÌ Æ¯Á¤ ½ÃÁ¡¿¡ ¸ğµå ¹Ş±â ¶§¹®¿¡ "On"À» ºÙ¿© ¼öµ¿Çü ÇÔ¼ö¶ó´Â °ÍÀ» ¸í½Ã
+    // -ì„œë²„ì‚¬ì´ë“œì—ì„œ ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì—ê²Œ íŠ¹ì • í•¨ìˆ˜ë¥¼ ì‹¤í–‰ì‹œí‚¬ ìˆ˜ ìˆë„ë¡[ClientRpc]ë¥¼ ë¶™ì„
+    // - [ClientRpc]ë¥¼ ë¶™ì¸ OnRecvMessage() í•¨ìˆ˜ ì¶”ê°€
+    // -í´ë¼ë“¤ì´ íŠ¹ì • ì‹œì ì— ëª¨ë“œ ë°›ê¸° ë•Œë¬¸ì— "On"ì„ ë¶™ì—¬ ìˆ˜ë™í˜• í•¨ìˆ˜ë¼ëŠ” ê²ƒì„ ëª…ì‹œ
     
     public void RemoveNameOnServerDisonnect(NetworkConnectionToClient conn)
     {
@@ -75,7 +75,7 @@ public class ChattingUI : NetworkBehaviour
     [ClientRpc]
     void OnRecvMessage(string senderName, string msg)
     {
-        //- Àü¼ÛÀÚ¿Í ÇöÀç ÇÃ·¹ÀÌ¾îÀÇ ÀÌ¸§ ºñ±³ ÈÄ ¸Ş¼¼Áö Æ÷¸ÅÆÃ(»ö±ò ³Ö¾îÁÜ)
+        //- ì „ì†¡ìì™€ í˜„ì¬ í”Œë ˆì´ì–´ì˜ ì´ë¦„ ë¹„êµ í›„ ë©”ì„¸ì§€ í¬ë§¤íŒ…(ìƒ‰ê¹” ë„£ì–´ì¤Œ)
         string formatedMsg = (senderName == _localPlayerName) ?
             $"<color=red>{senderName}:</color> {msg}" :
             $"<color=blue>{senderName}:</color> {msg}";
@@ -85,28 +85,28 @@ public class ChattingUI : NetworkBehaviour
 
 
     // ===================== [UI] =================================
-    // -UIÃ³¸®¸¦ À§ÇÑ AppendMessage ÇÔ¼ö Ãß°¡
+    // -UIì²˜ë¦¬ë¥¼ ìœ„í•œ AppendMessage í•¨ìˆ˜ ì¶”ê°€
     void AppendMessage(string msg)
     {
         StartCoroutine(AppendAndScroll(msg));
     }
 
 
-    // Unitask·Î ³ªÁß¿¡ ¹Ù²ãº¸±â
-    // - Text¿¡ Ã¤ÆÃ ³»¿ë Ãß°¡, ½ºÅ©·Ñ ³»·ÁÁÖ±â
+    // Unitaskë¡œ ë‚˜ì¤‘ì— ë°”ê¿”ë³´ê¸°
+    // - Textì— ì±„íŒ… ë‚´ìš© ì¶”ê°€, ìŠ¤í¬ë¡¤ ë‚´ë ¤ì£¼ê¸°
     IEnumerator AppendAndScroll(string msg)
     {
         Text_ChatHistory.text += msg + "\n";
 
-        yield return null; // ÇÑ ÇÁ·¹ÀÓ ´ë±â
+        yield return null; // í•œ í”„ë ˆì„ ëŒ€ê¸°
         yield return null;
 
-        ScrollBar_Chat.value = 0; // ½ºÅ©·ÑÀ» ¸Ç ¾Æ·¡·Î ³»¸²
+        ScrollBar_Chat.value = 0; // ìŠ¤í¬ë¡¤ì„ ë§¨ ì•„ë˜ë¡œ ë‚´ë¦¼
     }
     // ============================================================
 
 
-    // ¸Ş½ÃÁö Àü¼Û ¹öÆ° Å¬¸¯ ½Ã È£ÃâµÇ´Â ÇÔ¼ö
+    // ë©”ì‹œì§€ ì „ì†¡ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public void OnClick_SendMsg()
     {
         var currentChatMsg = Input_ChatMsg.text;
@@ -116,19 +116,19 @@ public class ChattingUI : NetworkBehaviour
         }
     }
 
-    //²ô±â ¹öÆ° Ã³¸®
+    //ë„ê¸° ë²„íŠ¼ ì²˜ë¦¬
     public void OnClick_Exit()
     {  
         NetworkManager.singleton.StopHost();
     }
 
-    // Ã¤ÆÃ ÀÔ·Â ½Ã Àü¼Û ¹öÆ° È°¼ºÈ­
+    // ì±„íŒ… ì…ë ¥ ì‹œ ì „ì†¡ ë²„íŠ¼ í™œì„±í™”
     public void OnValueChange_ToggleButton(string input)
     {
         Btn_Send.interactable = !string.IsNullOrWhiteSpace(input);
     }
 
-    // ¿£ÅÍ ½Ã Àü¼Û ÇÔ¼ö È£Ãâ ¸Ş¼¼Áö Àü¼Û
+    // ì—”í„° ì‹œ ì „ì†¡ í•¨ìˆ˜ í˜¸ì¶œ ë©”ì„¸ì§€ ì „ì†¡
     public void OnEndEdit_SendMsg(string input)
     {     
         if (Input.GetKeyDown(KeyCode.Return)

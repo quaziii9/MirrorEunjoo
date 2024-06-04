@@ -3,12 +3,12 @@ using Mirror;
 
 public class ChatUser : NetworkBehaviour
 {
-    // SyncVar - ¼­¹ö º¯¼ö¸¦ ¸ğµç Å¬¶ó¿¡ ÀÚµ¿ µ¿±âÈ­ÇÏ´Âµ¥ »ç¿ëµÊ
-    // Å¬¶ó°¡ Á÷Á¢ º¯°æÇÏ¸é ¾ÈµÇ°í, ¼­¹ö¿¡¼­ º¯°æÇØ¾ßÇÔ
+    // SyncVar - ì„œë²„ ë³€ìˆ˜ë¥¼ ëª¨ë“  í´ë¼ì— ìë™ ë™ê¸°í™”í•˜ëŠ”ë° ì‚¬ìš©ë¨
+    // í´ë¼ê°€ ì§ì ‘ ë³€ê²½í•˜ë©´ ì•ˆë˜ê³ , ì„œë²„ì—ì„œ ë³€ê²½í•´ì•¼í•¨
     [SyncVar]
     public string PlayerName;
 
-    // È£½ºÆ® ¶Ç´Â ¼­¹ö¿¡¼­¸¸ È£ÃâµÇ´Â ÇÔ¼ö
+    // í˜¸ìŠ¤íŠ¸ ë˜ëŠ” ì„œë²„ì—ì„œë§Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public override void OnStartServer()
     {
         PlayerName = (string)connectionToClient.authenticationData;

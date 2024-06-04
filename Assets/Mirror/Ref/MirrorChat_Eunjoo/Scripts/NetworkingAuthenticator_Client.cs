@@ -13,36 +13,36 @@ public partial class NetworkingAuthenticator
     public void OnInputValueChanged_SetPlayerName(string username)
     {
         _playerName = username;
-        // UI¸¦ ¾÷µ¥ÀÌÆ®
+        // UIë¥¼ ì—…ë°ì´íŠ¸
         _loginPopup.SetUIOnAuthValueChanged();
     }
 
-    // Å¬¶óÀÌ¾ğÆ®°¡ ½ÃÀÛµÉ ¶§ ÀÎÁõ ÀÀ´ä ¸Ş½ÃÁö ÇÚµé·¯¸¦ µî·Ï
+    // í´ë¼ì´ì–¸íŠ¸ê°€ ì‹œì‘ë  ë•Œ ì¸ì¦ ì‘ë‹µ ë©”ì‹œì§€ í•¸ë“¤ëŸ¬ë¥¼ ë“±ë¡
     public override void OnStartClient()
     {
         NetworkClient.RegisterHandler<AuthResMsg>(OnAuthResponseMessage, false);
     }
 
-    // Å¬¶óÀÌ¾ğÆ®°¡ Á¾·áµÉ ¶§ ÀÎÁõ ÀÀ´ä ¸Ş½ÃÁö ÇÚµé·¯¸¦ µî·Ï ÇØÁ¦
+    // í´ë¼ì´ì–¸íŠ¸ê°€ ì¢…ë£Œë  ë•Œ ì¸ì¦ ì‘ë‹µ ë©”ì‹œì§€ í•¸ë“¤ëŸ¬ë¥¼ ë“±ë¡ í•´ì œ
     public override void OnStopClient()
     {
         NetworkClient.UnregisterHandler<AuthResMsg>();
     }
 
-    // Å¬¶ó¿¡¼­ ÀÎÁõ ¿äÃ» ½Ã ºÒ·ÁÁü
+    // í´ë¼ì—ì„œ ì¸ì¦ ìš”ì²­ ì‹œ ë¶ˆë ¤ì§
     public override void OnClientAuthenticate()
     {
-        // AuthReqMsg ¸Ş½ÃÁö¸¦ »ı¼ºÇÏ¿© authUserName ÇÊµå¿¡ _playerName °ªÀ» ¼³Á¤,
-        // ÀÌ¸¦ ¼­¹ö·Î Àü¼ÛÇÕ´Ï´Ù.
+        // AuthReqMsg ë©”ì‹œì§€ë¥¼ ìƒì„±í•˜ì—¬ authUserName í•„ë“œì— _playerName ê°’ì„ ì„¤ì •,
+        // ì´ë¥¼ ì„œë²„ë¡œ ì „ì†¡í•©ë‹ˆë‹¤.
         NetworkClient.Send(new AuthReqMsg { authUserName = _playerName });
     }
 
     public void OnAuthResponseMessage(AuthResMsg msg)
     {
-        if(msg.code ==100) // ¼º°ø
+        if(msg.code ==100) // ì„±ê³µ
         {
             Debug.Log($"Auto Response:{msg.code} {msg.message}");
-            ClientAccept(); // Å¬¶ó ÀÎÁõ ¿Ï·á
+            ClientAccept(); // í´ë¼ ì¸ì¦ ì™„ë£Œ
         }
         else
         {

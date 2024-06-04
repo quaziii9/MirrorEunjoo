@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-// conn(connection) : Å¬¶óÀÌ¾ğÆ®¿Í ¼­¹ö °£ÀÇ ³×Æ®¿öÅ© ¿¬°áÀ» ³ªÅ¸³»´Â °´Ã¼
+// conn(connection) : í´ë¼ì´ì–¸íŠ¸ì™€ ì„œë²„ ê°„ì˜ ë„¤íŠ¸ì›Œí¬ ì—°ê²°ì„ ë‚˜íƒ€ë‚´ëŠ” ê°ì²´
 
 public partial class NetworkingAuthenticator : NetworkAuthenticator
 {
-    // _connectionPendingDisconnect : ¿¬°áÀ» ²÷À» ¿¹Á¤ÀÎ Å¬¶óÀÌ¾ğÆ® ¸ñ·Ï
-    // _playerNames : ÀÎÁõµÈ »ç¿ëÀÚ ÀÌ¸§ ¸ñ·Ï
+    // _connectionPendingDisconnect : ì—°ê²°ì„ ëŠì„ ì˜ˆì •ì¸ í´ë¼ì´ì–¸íŠ¸ ëª©ë¡
+    // _playerNames : ì¸ì¦ëœ ì‚¬ìš©ì ì´ë¦„ ëª©ë¡
     readonly HashSet<NetworkConnection> _connectionPendingDisconnect = new HashSet<NetworkConnection>();
     internal static readonly HashSet<string> _playerNames = new HashSet<string>();
 
 
-    // AuthReqMsg : Å¬¶óÀÌ¾ğÆ®°¡ º¸³½ ÀÎÁõ ¿äÃ» ¸Ş½ÃÁö, »ç¿ëÀÚ ÀÌ¸§À» Æ÷ÇÔ
+    // AuthReqMsg : í´ë¼ì´ì–¸íŠ¸ê°€ ë³´ë‚¸ ì¸ì¦ ìš”ì²­ ë©”ì‹œì§€, ì‚¬ìš©ì ì´ë¦„ì„ í¬í•¨
     public struct AuthReqMsg : NetworkMessage
     {
-        // ÀÎÁõÀ» À§ÇØ »ç¿ë
-        // OAuth °°Àº°É »ç¿ë½Ã ÀÌ ºÎºĞ¿¡ ¿¢¼¼½º ÅäÅ« °°Àº º¯¼ö¸¦ Ãß°¡ÇÏ¸é µÊ
+        // ì¸ì¦ì„ ìœ„í•´ ì‚¬ìš©
+        // OAuth ê°™ì€ê±¸ ì‚¬ìš©ì‹œ ì´ ë¶€ë¶„ì— ì—‘ì„¸ìŠ¤ í† í° ê°™ì€ ë³€ìˆ˜ë¥¼ ì¶”ê°€í•˜ë©´ ë¨
         public string authUserName;
     }
 
-    // AuthResMsg : ¼­¹ö°¡ º¸³½ ÀÎÁõ ÀÀ´ä ¸Ş½ÃÁö, ÀÀ´ä ÄÚµå¿Í ¸Ş½ÃÁö¸¦ Æ÷ÇÔ
+    // AuthResMsg : ì„œë²„ê°€ ë³´ë‚¸ ì¸ì¦ ì‘ë‹µ ë©”ì‹œì§€, ì‘ë‹µ ì½”ë“œì™€ ë©”ì‹œì§€ë¥¼ í¬í•¨
     public struct AuthResMsg : NetworkMessage
     {
         public byte code;
@@ -37,14 +37,14 @@ public partial class NetworkingAuthenticator : NetworkAuthenticator
     }
 
 
-    // ¼­¹ö°¡ ½ÃÀÛµÉ¶§ È£Ãâ, AuthReqMsg ¸Ş½ÃÁö¸¦ Ã³¸®ÇÒ ÇÚµé·¯¸¦ µî·Ï
-    // ÇÚµé·¯ : Æ¯Á¤ ÀÌº¥Æ®³ª ÀÛ¾÷ÀÌ ¹ß»ıÇßÀ»¶§ ÀÌ¸¦ Ã³¸®ÇÏ´Â ÄÚµå
+    // ì„œë²„ê°€ ì‹œì‘ë ë•Œ í˜¸ì¶œ, AuthReqMsg ë©”ì‹œì§€ë¥¼ ì²˜ë¦¬í•  í•¸ë“¤ëŸ¬ë¥¼ ë“±ë¡
+    // í•¸ë“¤ëŸ¬ : íŠ¹ì • ì´ë²¤íŠ¸ë‚˜ ì‘ì—…ì´ ë°œìƒí–ˆì„ë•Œ ì´ë¥¼ ì²˜ë¦¬í•˜ëŠ” ì½”ë“œ
     public override void OnStartServer()
     {
         NetworkServer.RegisterHandler<AuthReqMsg>(OnAuthRequestMessage, false);
     }
 
-    // ¼­¹ö°¡ ¸ØÃâ¶§ È£Ãâ AuthResMsg ¸Ş½ÃÁö ÇÚµé·¯¸¦ µî·Ï ÇØÁ¦
+    // ì„œë²„ê°€ ë©ˆì¶œë•Œ í˜¸ì¶œ AuthResMsg ë©”ì‹œì§€ í•¸ë“¤ëŸ¬ë¥¼ ë“±ë¡ í•´ì œ
     public override void OnStopServer()
     {
         NetworkServer.UnregisterHandler<AuthResMsg>();
@@ -55,22 +55,22 @@ public partial class NetworkingAuthenticator : NetworkAuthenticator
     }
 
 
-    // Å¬¶óÀÌ¾ğÆ®°¡ ÀÎÁõ ¿äÃ» ¸Ş½ÃÁö¸¦ º¸³¾¶§ È£Ãâ
+    // í´ë¼ì´ì–¸íŠ¸ê°€ ì¸ì¦ ìš”ì²­ ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ë•Œ í˜¸ì¶œ
     public void OnAuthRequestMessage(NetworkConnectionToClient conn, AuthReqMsg msg)
     {
-        // Å¬¶ó ÀÎÁõ ¿äÃ» ¸Ş¼¼Áö µµÂø ½Ã Ã³¸®
-        Debug.Log($"ÀÎÁõ ¿äÃ» : {msg.authUserName}");
+        // í´ë¼ ì¸ì¦ ìš”ì²­ ë©”ì„¸ì§€ ë„ì°© ì‹œ ì²˜ë¦¬
+        Debug.Log($"ì¸ì¦ ìš”ì²­ : {msg.authUserName}");
 
-        // ÀÌ¹Ì¿¬°á ´ë±â ÁßÀÎ Å¬¶óÀÌ¾ğÆ®´Â ¹«½Ã
+        // ì´ë¯¸ì—°ê²° ëŒ€ê¸° ì¤‘ì¸ í´ë¼ì´ì–¸íŠ¸ëŠ” ë¬´ì‹œ
         if (_connectionPendingDisconnect.Contains(conn)) return;
 
-        // À¥¼­¹ö , DB, Playerfab API µîÀ» È£ÃâÇØ ÀÎÁõ È®ÀÎ
-        // »õ·Î¿î »ç¿ëÀÚ ÀÌ¸§ÀÎ °æ¿ì ¸ñ·Ï¿¡ Ãß°¡, ¼º°ø ¸Ş½ÃÁö¸¦ º¸³½ ÈÄ ¿¬°áÀ» ¼ö¶ô
+        // ì›¹ì„œë²„ , DB, Playerfab API ë“±ì„ í˜¸ì¶œí•´ ì¸ì¦ í™•ì¸
+        // ìƒˆë¡œìš´ ì‚¬ìš©ì ì´ë¦„ì¸ ê²½ìš° ëª©ë¡ì— ì¶”ê°€, ì„±ê³µ ë©”ì‹œì§€ë¥¼ ë³´ë‚¸ í›„ ì—°ê²°ì„ ìˆ˜ë½
         if(!_playerNames.Contains(msg.authUserName))
         {
             _playerNames.Add(msg.authUserName);
 
-            // ´ëÀÔÇÑ ÀÎÁõ °ªÀº Player.OnStartServer ½ÃÁ¡¿¡¼­ ÀĞÀ½
+            // ëŒ€ì…í•œ ì¸ì¦ ê°’ì€ Player.OnStartServer ì‹œì ì—ì„œ ì½ìŒ
             conn.authenticationData = msg.authUserName;
 
             AuthResMsg authResMsg = new AuthResMsg
@@ -83,7 +83,7 @@ public partial class NetworkingAuthenticator : NetworkAuthenticator
             ServerAccept(conn);
         }
 
-        // ÀÌ¹Ì »ç¿ëÁßÀÎ ÀÌ¸§ÀÎ °æ¿ì ½ÇÆĞ ¸Ş½ÃÁö¸¦ º¸³»°í, ¿¬°áÀ» ´ë±â ¸ñ·Ï¿¡ Ãß°¡
+        // ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ì´ë¦„ì¸ ê²½ìš° ì‹¤íŒ¨ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ê³ , ì—°ê²°ì„ ëŒ€ê¸° ëª©ë¡ì— ì¶”ê°€
         else
         {
             _connectionPendingDisconnect.Add(conn);
@@ -103,11 +103,11 @@ public partial class NetworkingAuthenticator : NetworkAuthenticator
    
     IEnumerator DelayedDisconnect(NetworkConnectionToClient conn, float waitTime)
     {
-        // ÁöÁ¤½Ã°£ÀÌ Áö³­ÈÄ Å¬¶óÀÌ¾ğÆ® ¿¬°áÀ» °ÅºÎ
+        // ì§€ì •ì‹œê°„ì´ ì§€ë‚œí›„ í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì„ ê±°ë¶€
         yield return new WaitForSeconds(waitTime);
         ServerReject(conn);
 
-        // ´ë±â ¸ñ·Ï¿¡¼­ ÇØ´ç Å¬¶óÀÌ¾ğÆ® Á¦°Å
+        // ëŒ€ê¸° ëª©ë¡ì—ì„œ í•´ë‹¹ í´ë¼ì´ì–¸íŠ¸ ì œê±°
         yield return null;
         _connectionPendingDisconnect.Remove(conn);
     }

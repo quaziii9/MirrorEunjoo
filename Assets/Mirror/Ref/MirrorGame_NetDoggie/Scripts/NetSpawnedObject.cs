@@ -66,7 +66,7 @@ public class NetSpawnedObject : NetworkBehaviour
         NavAgent_Player.velocity = forward * Mathf.Max(vertical, 0) * NavAgent_Player.speed;
         Animator_Player.SetBool("Moving", NavAgent_Player.velocity != Vector3.zero);
 
-        if(Input.GetKeyDown(_attKey))
+        if (Input.GetKeyDown(_attKey))
         {
             CommandAtk();
         }

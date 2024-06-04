@@ -4,6 +4,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.AI;
 
+// 서버에 스폰될 오브젝트
 public class NetSpawnedObject : NetworkBehaviour
 {
     [Header("Components")]
